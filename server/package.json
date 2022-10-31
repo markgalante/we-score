@@ -1,0 +1,27 @@
+{
+  "name": "we-score-server",
+  "version": "1.0.0",
+  "main": "app.js",
+  "repository": "https://github.com/markgalante/we-score",
+  "author": "Mark Galante",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "dev:start": "tsc node dist/index.js",
+    "build": "tsc",
+    "start": "node dist/index.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.20.1",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "mongoose": "^6.7.0"
+  },
+  "devDependencies": {
+    "@types/cookie-parser": "^1.4.3",
+    "@types/express": "^4.17.14",
+    "@types/node": "^18.11.8",
+    "typescript": "^4.8.4"
+  }
+}
