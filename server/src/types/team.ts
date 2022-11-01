@@ -1,9 +1,12 @@
+import type {
+  Types,
+} from 'mongoose';
 import {
   MatchSchema
 } from './match';
 import {
   LeagueSchema,
-} from './league' 
+} from './league';
 
 export type TeamSchema = {
   name: string;
@@ -13,4 +16,5 @@ export type TeamSchema = {
   goalsFor: number;
   goalsAgainst: number;
   home: string;
+  _id: Types.ObjectId;
 }
