@@ -17,7 +17,7 @@ export const addLeague = async (
     res
       .status(201)
       .send({
-        message: "You have successfully created a team",
+        message: "You have successfully created a league",
         data,
       })
   } catch (error) {
