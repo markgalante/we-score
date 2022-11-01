@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.viewLeagues = exports.addLeague = void 0;
+exports.viewSpecificLeague = exports.viewLeagues = exports.addLeague = void 0;
 const models_1 = require("../models");
 const addLeague = async (req, res) => {
     try {
@@ -44,4 +44,24 @@ const viewLeagues = async (_, res) => {
     }
 };
 exports.viewLeagues = viewLeagues;
+const viewSpecificLeague = async (req, res) => {
+    try {
+        const data = await models_1.League.findById(req.params.leagueID);
+        res
+            .status(200)
+            .send({
+            message: `Returned ${data?.name}`,
+            data,
+        });
+    }
+    catch (error) {
+        res
+            .status(500)
+            .send({
+            message: "Something went wrong collecting the collection of leagues",
+            error,
+        });
+    }
+};
+exports.viewSpecificLeague = viewSpecificLeague;
 //# sourceMappingURL=league.js.map
