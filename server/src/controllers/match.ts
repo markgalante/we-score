@@ -15,15 +15,6 @@ import {
 
 import * as ModelTypes from '../types';
 
-/**
-  homeTeam: Team, 
-  homeScore: number, 
-  awayTeam: Team, 
-  awayScore: number, 
-  league: League;
-)
- */
-
 type MatchDataType = 
   Document<
     unknown, any, ModelTypes.MatchSchema> & ModelTypes.MatchSchema & {
@@ -41,19 +32,33 @@ type TeamDataType =
     }>
   ) | null
 
-
+type LeagueDataType = (
+  Document<
+    unknown,
+    any,
+    ModelTypes.LeagueSchema
+  > & ModelTypes.LeagueSchema & Required<{
+    _id: Types.ObjectId;
+  }>
+) | null
 
 export const registerMatch = async (
   req: Request,
   res: Response,
 ) => {
   //Create Match with scores
+  const homeTeam = await TeamModel.findById(req.body.homeTeam);
+  const awayTeam = await TeamModel.findById(req.body.awayTeam);
+  const league = await LeagueModel.findById(req.body.league);
   try {
     const match = await MatchModel.create({
-      ...req.body
+      ...req.body,
+      homeTeam,
+      awayTeam,
+      league,
     });
     await addMatchToLeague(req, res, match);
-    await updateTeams(req, match);
+    await updateTeams(req, homeTeam, awayTeam, league);
     res
     .status(201)
     .send({
@@ -94,23 +99,13 @@ const addMatchToLeague = async (
   }
 }
 
-/**
-  homeTeam: Team, 
-  homeScore: number, 
-  awayTeam: Team, 
-  awayScore: number, 
-  league: League;
-)
- */
-
 const updateTeams = async (
   req: Request,
-  data: MatchDataType,
+  homeTeam: TeamDataType,
+  awayTeam: TeamDataType,
+  league: LeagueDataType,
 ) => {
   try {
-    const homeTeam = await TeamModel.findById(data.homeTeam._id);
-    const awayTeam = await TeamModel.findById(data.awayTeam._id);
-    const league = await LeagueModel.findById(data.league._id);
     const {
       pointsDraw,
       pointsLoss,
@@ -158,5 +153,37 @@ const updateTeamsStandings = async (
     awayTeam.goalsAgainst += homeScore;
     awayTeam.points += awayPoints;
     await awayTeam.save();
+  }
+}
+
+export const viewMatchesInLeague = async (
+  req: Request,
+  res: Response,
+) => {
+  try {
+    const matches = await MatchModel.find({
+      league: req.params.leagueId,
+    })
+    const data = matches.map(match => ({
+      home: {
+        name: match.homeTeam.name,
+        score: match.homeScore,
+        id: match.homeTeam._id,
+      },
+      away: {
+        name: match.awayTeam.name,
+        score: match.awayScore,
+        id: match.awayTeam._id
+      }
+    }));
+    res.status(200).send({
+      message: `Successfully fetched results from league ${req.params.leagueId}`,
+      data,
+    })
+  } catch (error) {
+    res.status(500).send({
+      message: "Failed to fetch matches from league",
+      error,
+    })
   }
 }

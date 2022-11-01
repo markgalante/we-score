@@ -10,15 +10,18 @@ const matchSchema = new Schema<MatchSchema>({
   awayTeam: {
     type: Schema.Types.ObjectId,
     ref: "Team",
+    required: true,
   },
   homeTeam: {
     type: Schema.Types.ObjectId,
     ref: "Team",
+    required: true,
   },
   league: {
     type: Schema.Types.ObjectId,
     ref: "League",
-  }
+    required: true,
+  },
 });
 
 export const Match = model("Match", matchSchema);
