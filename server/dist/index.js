@@ -26,12 +26,14 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express = __importStar(require("express"));
 const body_parser_1 = require("body-parser");
 const mongoose = __importStar(require("mongoose"));
+const routes_1 = require("./routes");
 const app = express.default();
 const port = 8001;
 app.use(express.json());
 app.use(express.urlencoded({ extended: true, }));
 app.use((0, body_parser_1.urlencoded)({ extended: false }));
 app.use((0, body_parser_1.json)());
+app.use('/', routes_1.leagueRouter);
 var mongoDB = "mongodb://localhost/groops";
 mongoose
     .connect(mongoDB, () => {
