@@ -3,7 +3,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.addTeam = void 0;
 const models_1 = require("../models");
 const addTeam = async (req, res) => {
-    console.log('Running');
     try {
         const data = await models_1.League.create({
             ...req.body,
