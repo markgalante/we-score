@@ -1,0 +1,1 @@
+{"version":3,"file":"index.js","sourceRoot":"/src/","sources":["controllers/index.ts"],"names":[],"mappings":";;;;;;;;;;;;;;;;AAAA,2CAAyB;AACzB,yCAAuB","sourcesContent":["export * from './league';\nexport * from './team';"]}

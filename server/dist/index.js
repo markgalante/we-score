@@ -34,6 +34,7 @@ app.use(express.urlencoded({ extended: true, }));
 app.use((0, body_parser_1.urlencoded)({ extended: false }));
 app.use((0, body_parser_1.json)());
 app.use('/', routes_1.leagueRouter);
+app.use('/', routes_1.teamRouter);
 var mongoDB = "mongodb://localhost/we-score";
 mongoose
     .connect(mongoDB, () => {

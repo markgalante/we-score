@@ -3,7 +3,10 @@ import type { Application } from "express";
 import { json, urlencoded } from "body-parser";
 import * as mongoose from "mongoose";
 
-import {leagueRouter} from './routes'
+import {
+    leagueRouter,
+    teamRouter,
+} from './routes'
 
 const app: Application = express.default();
 const port: Number = 8001;
@@ -14,6 +17,7 @@ app.use(urlencoded({extended: false}));
 app.use(json());
 
 app.use('/', leagueRouter);
+app.use('/', teamRouter);
 
 var mongoDB = "mongodb://localhost/we-score";
 mongoose
