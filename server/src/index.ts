@@ -15,7 +15,7 @@ app.use(json());
 
 app.use('/', leagueRouter);
 
-var mongoDB = "mongodb://localhost/groops";
+var mongoDB = "mongodb://localhost/we-score";
 mongoose
     .connect(mongoDB, (): void => {
     console.log("connected to database");
