@@ -6,6 +6,7 @@ import * as mongoose from "mongoose";
 import {
     leagueRouter,
     teamRouter,
+    matchRouter,
 } from './routes'
 
 const app: Application = express.default();
@@ -18,6 +19,7 @@ app.use(json());
 
 app.use('/', leagueRouter);
 app.use('/', teamRouter);
+app.use('/', matchRouter);
 
 var mongoDB = "mongodb://localhost/we-score";
 mongoose
