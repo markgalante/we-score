@@ -1,9 +1,10 @@
 import {Router} from 'express';
-import {addTeam} from '../controllers/league';
+import {addLeague} from '../controllers/league';
 
 const router = Router();
 
-router.post('/create-league', addTeam)
+router.post('/create-league', addLeague)
+router.get('/leagues')
 
 export {
   router as leagueRouter

@@ -6,7 +6,7 @@ import {
   League as LeagueModel,
 } from '../models';
 
-export const addTeam = async (
+export const addLeague = async (
   req: Request,
   res: Response,
 ) => {
