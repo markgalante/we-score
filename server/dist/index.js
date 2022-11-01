@@ -22,17 +22,14 @@ var __importStar = (this && this.__importStar) || function (mod) {
     __setModuleDefault(result, mod);
     return result;
 };
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
-const express_1 = __importDefault(require("express"));
+const express = __importStar(require("express"));
 const body_parser_1 = require("body-parser");
 const mongoose = __importStar(require("mongoose"));
-const app = (0, express_1.default)();
-const port = 3000;
-app.use(express_1.default.json());
-app.use(express_1.default.urlencoded({ extended: true, }));
+const app = express.default();
+const port = 8001;
+app.use(express.json());
+app.use(express.urlencoded({ extended: true, }));
 app.use((0, body_parser_1.urlencoded)({ extended: false }));
 app.use((0, body_parser_1.json)());
 var mongoDB = "mongodb://localhost/groops";
