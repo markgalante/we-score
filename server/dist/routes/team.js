@@ -6,4 +6,5 @@ const controllers_1 = require("../controllers");
 const router = (0, express_1.Router)();
 exports.teamRouter = router;
 router.post('/create-team', controllers_1.createTeam);
+router.get('/rankings/:leagueId', controllers_1.listLeagueRankings);
 //# sourceMappingURL=team.js.map

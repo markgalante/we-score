@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.createTeam = void 0;
+exports.listLeagueRankings = exports.createTeam = void 0;
 const models_1 = require("../models");
 const createTeam = async (req, res) => {
     try {
@@ -46,4 +46,24 @@ const addCreatedTeamToLeague = async (req, res, data) => {
         });
     }
 };
+const listLeagueRankings = async (req, res) => {
+    try {
+        const teams = await models_1.Team
+            .find({
+            league: req.params.leagueId
+        }, '-_id -__v')
+            .sort({ points: -1, name: 1 });
+        res.status(200).send({
+            message: 'Successfully fetched league',
+            data: teams,
+        });
+    }
+    catch (error) {
+        res.status(500).send({
+            message: "Failed to fetch teams",
+            error,
+        });
+    }
+};
+exports.listLeagueRankings = listLeagueRankings;
 //# sourceMappingURL=team.js.map
