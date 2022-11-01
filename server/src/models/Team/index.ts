@@ -13,6 +13,7 @@ const teamSchema = new Schema<TeamSchema>({
   league: {
     type: Schema.Types.ObjectId,
     ref: "League",
+    required: true,
   },
   matches: [{
     type: Schema.Types.ObjectId,

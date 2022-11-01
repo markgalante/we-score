@@ -10,7 +10,7 @@ const addLeague = async (req, res) => {
         res
             .status(201)
             .send({
-            message: "You have successfully created a team",
+            message: "You have successfully created a league",
             data,
         });
     }

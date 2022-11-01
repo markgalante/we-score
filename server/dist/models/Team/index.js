@@ -11,6 +11,7 @@ const teamSchema = new mongoose_1.Schema({
     league: {
         type: mongoose_1.Schema.Types.ObjectId,
         ref: "League",
+        required: true,
     },
     matches: [{
             type: mongoose_1.Schema.Types.ObjectId,
