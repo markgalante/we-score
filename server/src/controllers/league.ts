@@ -51,3 +51,25 @@ export const viewLeagues = async (
       })
   }
 }
+
+export const viewSpecificLeague = async (
+  req: Request,
+  res: Response,
+) => {
+  try {
+    const data = await LeagueModel.findById(req.params.leagueID);
+    res
+    .status(200)
+    .send({
+      message: `Returned ${data?.name}`,
+      data,
+    })
+  } catch (error) {
+    res
+    .status(500)
+    .send({
+      message: "Something went wrong collecting the collection of leagues",
+      error,
+    })
+  }
+}

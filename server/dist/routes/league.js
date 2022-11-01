@@ -7,4 +7,5 @@ const router = (0, express_1.Router)();
 exports.leagueRouter = router;
 router.post('/create-league', league_1.addLeague);
 router.get('/leagues', league_1.viewLeagues);
+router.get(`/leagues/:leagueID`, league_1.viewSpecificLeague);
 //# sourceMappingURL=league.js.map
