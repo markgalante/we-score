@@ -8,15 +8,18 @@ const matchSchema = new mongoose_1.Schema({
     awayTeam: {
         type: mongoose_1.Schema.Types.ObjectId,
         ref: "Team",
+        required: true,
     },
     homeTeam: {
         type: mongoose_1.Schema.Types.ObjectId,
         ref: "Team",
+        required: true,
     },
     league: {
         type: mongoose_1.Schema.Types.ObjectId,
         ref: "League",
-    }
+        required: true,
+    },
 });
 exports.Match = (0, mongoose_1.model)("Match", matchSchema);
 //# sourceMappingURL=index.js.map
