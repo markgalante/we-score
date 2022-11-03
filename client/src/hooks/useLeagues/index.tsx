@@ -4,7 +4,7 @@ import {
 } from '@tanstack/react-query';
 import {
   LeagueInfoType
-} from './types'
+} from '../types'
 
 const fetchLeagues = async () => 
   await (await axios.get(`http://localhost:8001/leagues`)).data?.data
