@@ -5,5 +5,9 @@
   "repository": "https://github.com/markgalante/we-score.git",
   "author": "Mark Galante",
   "license": "MIT",
-  "private": false
+  "private": false,
+  "dependencies": {
+    "@tanstack/react-query": "^4.14.1",
+    "axios": "^1.1.3"
+  }
 }
