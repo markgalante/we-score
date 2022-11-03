@@ -15,9 +15,10 @@ const fetchLeagueTable = async ({
   await (await axios.get(`http://localhost:8001/rankings/${leagueId}`)).data?.data
 
 type UseLeagueTableResult = {
-  data: LeagueTableData,
+  data: LeagueTableData;
   error: unknown;
-  status: "error" | "success" | "loading"
+  status: "error" | "success" | "loading";
+  refetch: () => void;
 }
 
 export const useLeagueTable = (
@@ -27,10 +28,12 @@ export const useLeagueTable = (
     data,
     error,
     status,
-  } = useQuery([leagueId] ,() => fetchLeagueTable({leagueId}))
+    refetch
+  } = useQuery(['leagueTable', leagueId] ,() => fetchLeagueTable({leagueId}))
   return {
     data,
     error,
     status,
+    refetch
   }
 }
