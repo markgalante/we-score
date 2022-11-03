@@ -6,13 +6,17 @@ import {
 import './styles/App.css';
 import './styles/colors.css';
 
+import {
+  LeagueTable
+} from './scenes'
+
 const queryClient = new QueryClient()
 
 function App() {
   return (
   <QueryClientProvider client={queryClient}>
     <div className="App">
-      <p>Hello</p>
+      <LeagueTable />
     </div>
   </QueryClientProvider>
   );
