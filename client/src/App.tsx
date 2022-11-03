@@ -8,11 +8,6 @@ import './styles/colors.css';
 
 import {BrowserRouter} from './BrowserRouter';
 
-import {
-  LeagueTable,
-  ViewLeagues,
-} from './scenes'
-
 const queryClient = new QueryClient()
 
 function App() {
