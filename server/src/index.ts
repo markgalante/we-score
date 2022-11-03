@@ -2,6 +2,7 @@ import * as express from "express";
 import type { Application } from "express";
 import { json, urlencoded } from "body-parser";
 import * as mongoose from "mongoose";
+import cors from 'cors';
 
 import {
     leagueRouter,
@@ -11,7 +12,7 @@ import {
 
 const app: Application = express.default();
 const port: Number = 8001;
-
+app.use(cors())
 app.use(express.json());
 app.use(express.urlencoded({ extended: true, }));
 app.use(urlencoded({extended: false}));

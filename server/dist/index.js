@@ -22,13 +22,18 @@ var __importStar = (this && this.__importStar) || function (mod) {
     __setModuleDefault(result, mod);
     return result;
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 const express = __importStar(require("express"));
 const body_parser_1 = require("body-parser");
 const mongoose = __importStar(require("mongoose"));
+const cors_1 = __importDefault(require("cors"));
 const routes_1 = require("./routes");
 const app = express.default();
 const port = 8001;
+app.use((0, cors_1.default)());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true, }));
 app.use((0, body_parser_1.urlencoded)({ extended: false }));

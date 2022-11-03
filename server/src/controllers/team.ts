@@ -81,7 +81,7 @@ export const listLeagueRankings = async (
     const teams = await TeamModel
     .find({
       league: req.params.leagueId
-    }, '-_id -__v')
+    }, '-__v')
     .sort({points: -1, name: 1})
     res.status(200).send({
       message: 'Successfully fetched league',
