@@ -6,8 +6,11 @@ import {
 import './styles/App.css';
 import './styles/colors.css';
 
+import {BrowserRouter} from './BrowserRouter';
+
 import {
-  LeagueTable
+  LeagueTable,
+  ViewLeagues,
 } from './scenes'
 
 const queryClient = new QueryClient()
@@ -16,7 +19,7 @@ function App() {
   return (
   <QueryClientProvider client={queryClient}>
     <div className="App">
-      <LeagueTable />
+      <BrowserRouter />
     </div>
   </QueryClientProvider>
   );

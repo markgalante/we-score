@@ -1,15 +1,21 @@
-import * as React from 'react';
+import {
+  useParams,
+} from 'react-router-dom';
+
 import {
   useLeagueTable,
-} from '../../hooks'
+  useLeagueInfo,
+} from 'hooks'
 
 export const LeagueTable = () => {
-  const leagueTable = useLeagueTable('6361725adcb6552c40994403')
+  const params = useParams();
+  const leagueTable = useLeagueTable(params.leagueId ?? '6361725adcb6552c40994403')
+  const leagueInfo = useLeagueInfo(params.leagueId ?? '6361725adcb6552c40994403')
 
-  if((leagueTable.data ?? []).length){
+  if((leagueTable.data ?? []).length && leagueInfo.data){
     return (
       <div>
-        <h2>League Table</h2>
+        <h2>{leagueInfo.data.name}</h2>
         <ul>
           {
             leagueTable.data.map((team, idx) => {
