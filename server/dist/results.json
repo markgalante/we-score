@@ -1,0 +1,32 @@
+[
+    {
+        "homeTeam": "Bears",
+        "homeScore": 3,
+        "awayTeam": "Snakes",
+        "awayScore": 3
+    },
+    {
+        "homeTeam": "Tarantulas",
+        "homeScore": 1,
+        "awayTeam": "FC New",
+        "awayScore": 0
+    },
+    {
+        "homeTeam": "Bears",
+        "homeScore": 1,
+        "awayTeam": "FC New",
+        "awayScore": 1
+    },
+    {
+        "homeTeam": "Tarantulas",
+        "homeScore": 3,
+        "awayTeam": "Snakes",
+        "awayScore": 1
+    },
+    {
+        "homeTeam": "Bears",
+        "homeScore": 4,
+        "awayTeam": "Grouches",
+        "awayScore": 0
+    }
+]

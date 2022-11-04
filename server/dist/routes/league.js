@@ -8,4 +8,6 @@ exports.leagueRouter = router;
 router.post('/create-league', league_1.addLeague);
 router.get('/leagues', league_1.viewLeagues);
 router.get(`/leagues/:leagueID`, league_1.viewSpecificLeague);
+router.get('/input-league', league_1.viewCustomLeagueData);
+;
 //# sourceMappingURL=league.js.map
