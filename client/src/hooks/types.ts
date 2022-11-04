@@ -24,3 +24,8 @@ export type PostResultArgs = {
   homeTeam: string;
   league: string;
 }
+
+export type ManualLeagueTableItem = {
+  team: string,
+  points: number;
+}

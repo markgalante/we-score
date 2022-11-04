@@ -16,7 +16,6 @@ export const LeagueTable = () => {
   const handleAddResultClick = () => {
     navigate('new-match');
   }
-
   if((leagueTable.data ?? []).length && leagueInfo.data){
     return (
       <div>
