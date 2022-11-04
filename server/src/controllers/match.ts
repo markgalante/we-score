@@ -46,7 +46,8 @@ export const registerMatch = async (
   req: Request,
   res: Response,
 ) => {
-  //Create Match with scores
+  console.log(req.body);
+  console.log(req.body.body)
   const homeTeam = await TeamModel.findById(req.body.homeTeam);
   const awayTeam = await TeamModel.findById(req.body.awayTeam);
   const league = await LeagueModel.findById(req.body.league);

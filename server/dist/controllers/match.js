@@ -3,7 +3,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.viewMatchesInLeague = exports.registerMatch = void 0;
 const models_1 = require("../models");
 const registerMatch = async (req, res) => {
-    //Create Match with scores
+    console.log(req.body);
+    console.log(req.body.body);
     const homeTeam = await models_1.Team.findById(req.body.homeTeam);
     const awayTeam = await models_1.Team.findById(req.body.awayTeam);
     const league = await models_1.League.findById(req.body.league);
