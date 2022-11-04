@@ -8,6 +8,7 @@ import {
   ViewLeagues,
   LeagueTable,
   AddResult,
+  CustomLeagueTable,
 } from './scenes'
 
 export function BrowserRouter(){
@@ -17,6 +18,7 @@ export function BrowserRouter(){
           <Route path='/' element={<ViewLeagues />} />
           <Route path='/rankings/:leagueId' element={<LeagueTable />}/>
           <Route path='/rankings/:leagueId/new-match' element={<AddResult />}/>
+          <Route path='/custom-league-table' element={<CustomLeagueTable />}/>
         </Routes>
     </Router>
   )
